@@ -1,1 +1,38 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body onload="startTime()" style="margin: 0px; background-color: black;">
+    <div id="txt" style="width:960px; height:527px; font-family: 'Nunito', sans-serif; font-size: 200px; background-color: aqua; margin: auto; align-items: center; display: flex; justify-content: center; color:rgb(78, 78, 78); background-color: black;"></div>
+    <script>
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i
+            }; // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
+
+</body>
+
+</html>
